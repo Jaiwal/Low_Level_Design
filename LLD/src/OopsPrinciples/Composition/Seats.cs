@@ -1,8 +1,10 @@
-
-public class Seats
+namespace src.OopsPrinciples.compistion
 {
-    public void Sit()
+    public class Seats
     {
-        Console.WriteLine("Sitting on seats");
+        public void Sit()
+        {
+            Console.WriteLine("Sitting on seats");
+        }
     }
 }

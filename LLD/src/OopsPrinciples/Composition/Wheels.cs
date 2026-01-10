@@ -1,7 +1,10 @@
-public class Wheels
+namespace src.OopsPrinciples.compistion
 {
-    public void Rotate()
+    public class Wheels
     {
-        Console.WriteLine("Rotating wheels");
+        public void Rotate()
+        {
+            Console.WriteLine("Rotating wheels");
+        }
     }
 }

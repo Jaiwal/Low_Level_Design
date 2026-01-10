@@ -1,9 +1,11 @@
 
-
-public class Engine
+namespace src.OopsPrinciples.compistion
 {
-    public void Start()
+    public class Engine
     {
-        Console.WriteLine("Engine started");
+        public void Start()
+        {
+            Console.WriteLine("Engine started");
+        }
     }
 }

@@ -1,11 +1,13 @@
 
 
 using System.Net.WebSockets;
-
-public class Chassis
+namespace src.OopsPrinciples.compistion
 {
-    public void Support()
+    public class Chassis
     {
-        Console.WriteLine("Chassis supporting the car");
+        public void Support()
+        {
+            Console.WriteLine("Chassis supporting the car");
+        }
     }
 }

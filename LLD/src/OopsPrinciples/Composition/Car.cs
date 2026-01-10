@@ -1,3 +1,6 @@
+namespace src.OopsPrinciples.compistion
+{
+  
 public class Car
 {
     private Engine engine = new Engine();
@@ -16,4 +19,5 @@ public class Car
         seats.Sit();
         Console.WriteLine("Car has started");
     }
+}  
 }
