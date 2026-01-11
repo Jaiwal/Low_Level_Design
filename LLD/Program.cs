@@ -70,7 +70,7 @@
 
 
 //learning Momento
-
+/*
 using src.DesignPatterns.Behavioral.Momento;
 
 var editor = new Editor();
@@ -101,3 +101,85 @@ history.Undo();
 
 System.Console.WriteLine("Title : "+ editor.Title);
 System.Console.WriteLine("Content : " + editor.Content);
+
+*/
+
+//------------------learning State----------------------------------------------
+//wrong way to implement use case
+// using src.DesignPatterns.Behavioral.State.BadSolution;
+
+// var doc = new Document();
+// doc.State = DocumentState.Moderation;
+// doc.CurrentUserRoles = UserRoles.Admin;
+
+// System.Console.WriteLine(doc.State);
+// doc.Publish();
+// System.Console.WriteLine(doc.State);
+
+//right way using state
+
+// using src.DesignPatterns.Behavioral.State.GoodSolution;
+
+// var doc = new Document(UserRoles.Admin);
+// System.Console.WriteLine(doc.State); //by default we are in drafestate
+// doc.Publish();
+// System.Console.WriteLine(doc.State);
+// doc.Publish();
+// System.Console.WriteLine(doc.State); //user is editor so wont go into publish
+// //can also directly change the state
+// doc.State = new DraftState(doc);
+// System.Console.WriteLine(doc.State);
+
+//------------------learning State----------------------------------------------
+
+
+
+//-------------------learning strategy-----------------------------------------
+
+
+// using src.DesignPatterns.Behavioral.Strategy.GoodSolu tion;
+
+// var videoStorage = new VideoStorage(new CompressorMOV(), new OverlayBlackAndWhite());
+// videoStorage.Store("/videos/primal-fear  ");
+
+// //we have methods to change compressor or overlay in our class
+
+// videoStorage.SetOverlay(new OverlayNone());
+// videoStorage.SetCompressor(new CompressorMP4());
+// videoStorage.Store("/videos/radhe  ");
+
+
+//-------------------learning strategy-----------------------------------------
+
+//-------------------learning iterator-----------------------------------------
+
+// using src.DesignPatterns.Behavioral.Iterator;
+
+// //this will cause problem in case data type(internal of object changes since fixed length does not have count function)
+// ShoppingList list = new ShoppingList();
+// list.Push("Milk");
+// list.Push("Bread");
+// list.Push("paneer");
+
+// for (int i = 0; i < list.GetList().Count; i++)
+// {
+//     var item = list.GetList()[i];
+//     System.Console.WriteLine(item);
+// }
+
+//using iterator
+
+using src.DesignPatterns.Behavioral.Iterator.GoodSolution;
+
+ShoppingList list = new ShoppingList();
+list.Push("Milk");
+list.Push("Bread");
+list.Push("paneer");
+
+var iterator = list.CreateIterator();
+
+while (iterator.HasNext())
+{
+    System.Console.WriteLine(iterator.Current());
+    iterator.Next();
+}
