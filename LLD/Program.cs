@@ -169,17 +169,41 @@ System.Console.WriteLine("Content : " + editor.Content);
 
 //using iterator
 
-using src.DesignPatterns.Behavioral.Iterator.GoodSolution;
+// using src.DesignPatterns.Behavioral.Iterator.GoodSolution;
 
-ShoppingList list = new ShoppingList();
-list.Push("Milk");
-list.Push("Bread");
-list.Push("paneer");
+// ShoppingList list = new ShoppingList();
+// list.Push("Milk");
+// list.Push("Bread");
+// list.Push("paneer");
 
-var iterator = list.CreateIterator();
+// var iterator = list.CreateIterator();
 
-while (iterator.HasNext())
-{
-    System.Console.WriteLine(iterator.Current());
-    iterator.Next();
-}
+// while (iterator.HasNext())
+// {
+//     System.Console.WriteLine(iterator.Current());
+//     iterator.Next();
+// }
+
+//-------------------learning iterator-----------------------------------------
+
+
+//-------------------learning Command-----------------------------------------
+
+// using src.DesignPatterns.Behavioral.BadSolution.Command;
+
+// var light = new Light();
+// var remoteControl = new RemoteControl(light);
+
+// remoteControl.PressButton(true);
+// remoteControl.PressButton(false);
+
+using src.DesignPatterns.Behavioral.GoodSolution.Command;
+
+var light = new Light();
+var remoteControl = new RemoteControl(new TurnOnCommand(light));
+remoteControl.PressButton();
+
+remoteControl.SetCommand(new DimCommand(light));
+remoteControl.PressButton();
+
+//-------------------learning Command-----------------------------------------

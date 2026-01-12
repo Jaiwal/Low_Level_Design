@@ -20,7 +20,8 @@ namespace src.DesignPatterns.Behavioral.Iterator.GoodSolution
             return _list;
         }
 
-        public IIterator<string> CreateIterator() {
+        public IIterator<string> CreateIterator()
+        {
             return new ListIterator(this);
         }
         //creating nested class for iterator since these classes are only concerned with iterating over shoppinglist objects and not any other, related to this therefore nested
@@ -49,6 +50,8 @@ namespace src.DesignPatterns.Behavioral.Iterator.GoodSolution
                 _index += 1;
             }
         }
+        
+        //create new classes for other iterator in case DS of list changes
 
     }
 
