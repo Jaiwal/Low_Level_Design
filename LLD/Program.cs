@@ -197,13 +197,32 @@ System.Console.WriteLine("Content : " + editor.Content);
 // remoteControl.PressButton(true);
 // remoteControl.PressButton(false);
 
-using src.DesignPatterns.Behavioral.GoodSolution.Command;
+// using src.DesignPatterns.Behavioral.GoodSolution.Command;
 
-var light = new Light();
-var remoteControl = new RemoteControl(new TurnOnCommand(light));
-remoteControl.PressButton();
+// var light = new Light();
+// var remoteControl = new RemoteControl(new TurnOnCommand(light));
+// remoteControl.PressButton();
 
-remoteControl.SetCommand(new DimCommand(light));
-remoteControl.PressButton();
+// remoteControl.SetCommand(new DimCommand(light));
+// remoteControl.PressButton();
+
+//implementing undo with command
+
+using src.DesignPatterns.Behavioral.Command.UndoWithCommandPattern;
+
+var htmlDodc = new HtmlDocument();
+var history = new History();
+
+htmlDodc.Content = "New world";
+System.Console.WriteLine(htmlDodc.Content);
+
+
+var italicCommand = new Italic(htmlDodc, history);
+italicCommand.Execute();
+System.Console.WriteLine(htmlDodc.Content);
+
+var undoCommand = new UndoCommand(history);
+undoCommand.Execute();
+System.Console.WriteLine(htmlDodc.Content);
 
 //-------------------learning Command-----------------------------------------
