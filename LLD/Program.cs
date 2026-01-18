@@ -208,21 +208,23 @@ System.Console.WriteLine("Content : " + editor.Content);
 
 //implementing undo with command
 
-using src.DesignPatterns.Behavioral.Command.UndoWithCommandPattern;
+// using src.DesignPatterns.Behavioral.Command.UndoWithCommandPattern;
 
-var htmlDodc = new HtmlDocument();
-var history = new History();
+// var htmlDodc = new HtmlDocument();
+// var history = new History();
 
-htmlDodc.Content = "New world";
-System.Console.WriteLine(htmlDodc.Content);
+// htmlDodc.Content = "New world";
+// System.Console.WriteLine(htmlDodc.Content);
 
 
-var italicCommand = new Italic(htmlDodc, history);
-italicCommand.Execute();
-System.Console.WriteLine(htmlDodc.Content);
+// var italicCommand = new Italic(htmlDodc, history);
+// italicCommand.Execute();
+// System.Console.WriteLine(htmlDodc.Content);
 
-var undoCommand = new UndoCommand(history);
-undoCommand.Execute();
-System.Console.WriteLine(htmlDodc.Content);
+// var undoCommand = new UndoCommand(history);
+// undoCommand.Execute();
+// System.Console.WriteLine(htmlDodc.Content);
 
 //-------------------learning Command-----------------------------------------
+
+

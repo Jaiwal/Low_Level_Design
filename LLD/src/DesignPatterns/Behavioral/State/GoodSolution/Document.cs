@@ -5,12 +5,12 @@ namespace src.DesignPatterns.Behavioral.State.GoodSolution
     {
         public IState State { get; set; }
 
-        public UserRoles CurrentUserRoles { get; set; }
+        public UserRoles CurrentUserRole { get; set; }
 
         public Document(UserRoles currentUserRole)
         {
             State = new DraftState(this);
-            CurrentUserRoles = currentUserRole;
+            CurrentUserRole = currentUserRole;
         }
 
         public void Publish()

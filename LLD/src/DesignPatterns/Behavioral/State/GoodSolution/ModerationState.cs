@@ -13,7 +13,7 @@ namespace src.DesignPatterns.Behavioral.State.GoodSolution
         public void Publish()
         {
             //need to check if user is admin then call publishstate
-            if (_document.CurrentUserRoles == UserRoles.Admin)
+            if (_document.CurrentUserRole == UserRoles.Admin)
             {
                 _document.State =new PublishedState(_document);
             }
