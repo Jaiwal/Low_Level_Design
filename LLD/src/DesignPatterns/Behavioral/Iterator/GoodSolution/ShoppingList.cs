@@ -37,6 +37,7 @@ namespace src.DesignPatterns.Behavioral.Iterator.GoodSolution
             }
             public string Current()
             {
+                //_index get initialized to 0 when object get created
                 return _shoppingList._list[_index];
             }
 
