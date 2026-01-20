@@ -227,4 +227,18 @@ System.Console.WriteLine("Content : " + editor.Content);
 
 //-------------------learning Command-----------------------------------------
 
+//-------------------learning Template-----------------------------------------
 
+// using src.DesignPatterns.Behavioral.Template.BadSolution;
+
+// var tea = new Tea();
+// tea.MakeBaverage();
+//---
+//doing it with strategy
+using src.DesignPatterns.Behavioral.Template.StrategyPatternSolution;
+
+var beverageMaker = new BeverageMaker(new Coffee());
+beverageMaker.MakeBaverage();
+
+beverageMaker.SetBeverage(new Tea());
+beverageMaker.MakeBaverage();
