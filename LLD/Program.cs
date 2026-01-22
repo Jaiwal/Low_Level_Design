@@ -233,12 +233,70 @@ System.Console.WriteLine("Content : " + editor.Content);
 
 // var tea = new Tea();
 // tea.MakeBaverage();
-//---
-//doing it with strategy
-using src.DesignPatterns.Behavioral.Template.StrategyPatternSolution;
+// ---
+// doing it with strategy
+// using src.DesignPatterns.Behavioral.Template.StrategyPatternSolution;
 
-var beverageMaker = new BeverageMaker(new Coffee());
-beverageMaker.MakeBaverage();
+// var beverageMaker = new BeverageMaker(new Coffee());
+// beverageMaker.MakeBaverage();
 
-beverageMaker.SetBeverage(new Tea());
-beverageMaker.MakeBaverage();
+// beverageMaker.SetBeverage(new Tea());
+// beverageMaker.MakeBaverage();
+// ----
+// doing it with template
+
+// using src.DesignPatterns.Behavioral.Template.TeamplateMethodSolution;
+
+// var tea = new Tea();
+// tea.Prepare();
+
+//-------------------learning Template-----------------------------------------
+
+
+//-------------------learning Observer-----------------------------------------
+
+
+// using src.DesignPatterns.Behavioral.Observer.BadSolution;
+
+// DateSource datasource = new DateSource();
+
+// Sheet2 sheet2 = new Sheet2();
+// BarChart barChart = new BarChart();
+
+// datasource.AddDepended(sheet2);
+// datasource.AddDepended(barChart);
+
+// datasource.SetValues([1, 2, 3, 4, 5]);
+
+
+// datasource.SetValues([1, 2, 3]);
+
+//-----
+
+
+// using src.DesignPatterns.Behavioral.Observer.GoodObserverSolution;
+
+// DataSource dataSource = new DataSource();
+
+// Sheet2 sheet2 = new Sheet2(dataSource);
+// BarChart barChart = new BarChart(dataSource);
+
+// dataSource.AddObserver(sheet2); //adding observer
+// dataSource.AddObserver(barChart);
+
+// //this will notify all observer
+// dataSource.SetValues([3, 4, 5]);
+// //this will notify all observer
+// dataSource.SetValues([3, 5]);
+
+//-------------------learning Observer-----------------------------------------
+
+
+//-------------------learning Mediator-----------------------------------------
+
+using src.DesignPatterns.Behavioral.Mediator;
+
+var postDialogBox = new PostDialogBox();
+postDialogBox.SimulateUserInteraction();
+
+//-------------------learning Mediator-----------------------------------------

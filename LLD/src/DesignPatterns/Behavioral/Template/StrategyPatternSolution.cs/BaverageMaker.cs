@@ -1,4 +1,3 @@
-using src.DesignPatterns.Behavioral.Strategy.BadSolution;
 
 namespace src.DesignPatterns.Behavioral.Template.StrategyPatternSolution
 {
