@@ -325,23 +325,23 @@ System.Console.WriteLine("Content : " + editor.Content);
 
 // server.Handle(request);
 
-using src.DesignPatterns.Behavioral.COR.GoodSolution;
+// using src.DesignPatterns.Behavioral.COR.GoodSolution;
 
-var validator = new Validator();
-var authenticator = new Authenticator();
-var logger = new Logger();
+// var validator = new Validator();
+// var authenticator = new Authenticator();
+// var logger = new Logger();
 
-validator.SetNext(authenticator).SetNext(logger);
+// validator.SetNext(authenticator).SetNext(logger);
 
-var server = new WebServer(validator);
-var request = new HttpRequest("Priya", "123");
-server.Handle(request);
+// var server = new WebServer(validator);
+// var request = new HttpRequest("Priya", "123");
+// server.Handle(request);
 
 
-var request1 = new HttpRequest("Priya", "13"); //chain stop at auth no log
-server.Handle(request1);
+// var request1 = new HttpRequest("Priya", "13"); //chain stop at auth no log
+// server.Handle(request1);
 
-var request2 = new HttpRequest("", ""); //stop early here too
-server.Handle(request1);
+// var request2 = new HttpRequest("", ""); //stop early here too
+// server.Handle(request1);
 //-------------------learning chain of responsibility -----------------------------------------
 
