@@ -1,11 +1,10 @@
-namespace src.DesignPatterns.Behavioral.Mediator
+namespace src.DesignPatterns.Behavioral.Mediator.MediatorWithObserver.UIFramework
 {
+
     public class ListBox : UIControl
     {
         private string _selection = "";
-        public ListBox(DialogBox owner) : base(owner)
-        {
-        }
+       
 
         public string GetSelection()
         {
@@ -15,8 +14,7 @@ namespace src.DesignPatterns.Behavioral.Mediator
         public void SetSelection(String selection)
         {
             _selection = selection;
-            //now notify the owner that i have changed
-            _owner.Changed(this);
+            NotifyEventHandler();
         }
     }
 }

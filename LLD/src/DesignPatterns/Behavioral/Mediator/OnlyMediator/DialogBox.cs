@@ -1,4 +1,4 @@
-namespace src.DesignPatterns.Behavioral.Mediator
+namespace src.DesignPatterns.Behavioral.Mediator.OnlyMediator
 {    //understand this class as collection of Ui components
     public abstract class DialogBox
     {

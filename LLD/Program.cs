@@ -292,11 +292,56 @@ System.Console.WriteLine("Content : " + editor.Content);
 //-------------------learning Observer-----------------------------------------
 
 
-//-------------------learning Mediator-----------------------------------------
 
-using src.DesignPatterns.Behavioral.Mediator;
 
-var postDialogBox = new PostDialogBox();
-postDialogBox.SimulateUserInteraction();
 
-//-------------------learning Mediator-----------------------------------------
+//-------------------learning Mediator, medaitor+observer-----------------------------------------
+
+
+// using src.DesignPatterns.Behavioral.Mediator.OnlyMediator;
+
+// var postDialogBox = new PostDialogBox();
+// postDialogBox.SimulateUserInteraction();
+
+// using src.DesignPatterns.Behavioral.Mediator.MediatorWithObserver;
+
+// var postDialogBox = new PostDialogBox();
+// postDialogBox.SimulateUserInteraction();
+
+//-------------------learning Mediator, medaitor+observer -----------------------------------------
+
+
+
+
+//-------------------learning chain of responsibility -----------------------------------------
+
+
+//-------------------learning chain of responsibility -----------------------------------------
+
+// using src.DesignPatterns.Behavioral.COR.BadSolution;
+
+// var server = new WebServer();
+// var request = new HttpRequest("Priya", "123");
+
+// server.Handle(request);
+
+using src.DesignPatterns.Behavioral.COR.GoodSolution;
+
+var validator = new Validator();
+var authenticator = new Authenticator();
+var logger = new Logger();
+
+validator.SetNext(authenticator).SetNext(logger);
+
+var server = new WebServer(validator);
+var request = new HttpRequest("Priya", "123");
+server.Handle(request);
+
+
+var request1 = new HttpRequest("Priya", "13"); //chain stop at auth no log
+server.Handle(request1);
+
+var request2 = new HttpRequest("", ""); //stop early here too
+server.Handle(request1);
+//-------------------learning chain of responsibility -----------------------------------------
+
