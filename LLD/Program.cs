@@ -345,3 +345,38 @@ System.Console.WriteLine("Content : " + editor.Content);
 // server.Handle(request1);
 //-------------------learning chain of responsibility -----------------------------------------
 
+
+//-------------------learning visitor-----------------------------------------
+
+// using src.DesignPatterns.Behavioral.Visitor.BadSolution;
+
+// //get list of client from db(say)
+// var clients = new List<Client>
+// {
+//     new RetailerClient("Priya","team@united.com"),
+//     new RestroClient("Madhav","vrindavan@makhan.com"),
+//     new LawClient("Radhe","barsana@rani.com")
+// };
+
+
+// foreach (var cleint in clients)
+// {
+//     cleint.SendEmail(); //polymorphism here
+// }
+
+
+using src.DesignPatterns.Behavioral.Visitor.GoodSolution;
+
+var clients = new List<Client>
+{
+    new RetailerClient("Priya","team@united.com"),
+    new RestoClient("Madhav","vrindavan@makhan.com"),
+    new LawClient("Radhe","barsana@rani.com")
+};
+
+
+foreach (var cleint in clients)
+{
+    cleint.Accept(new EmailVisitor()); //polymorphism here
+    cleint.Accept(new PDFExportVisitor());
+}
