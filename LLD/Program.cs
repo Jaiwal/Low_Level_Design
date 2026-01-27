@@ -365,18 +365,94 @@ System.Console.WriteLine("Content : " + editor.Content);
 // }
 
 
-using src.DesignPatterns.Behavioral.Visitor.GoodSolution;
+// using src.DesignPatterns.Behavioral.Visitor.GoodSolution;
 
-var clients = new List<Client>
-{
-    new RetailerClient("Priya","team@united.com"),
-    new RestoClient("Madhav","vrindavan@makhan.com"),
-    new LawClient("Radhe","barsana@rani.com")
-};
+// var clients = new List<Client>
+// {
+//     new RetailerClient("Priya","team@united.com"),
+//     new RestoClient("Madhav","vrindavan@makhan.com"),
+//     new LawClient("Radhe","barsana@rani.com")
+// };
 
 
-foreach (var cleint in clients)
-{
-    cleint.Accept(new EmailVisitor()); //polymorphism here
-    cleint.Accept(new PDFExportVisitor());
-}
+// foreach (var cleint in clients)
+// {
+//     cleint.Accept(new EmailVisitor()); //polymorphism here
+//     cleint.Accept(new PDFExportVisitor());
+// }
+
+//-------------------learning visitor-----------------------------------------
+
+
+
+
+
+
+
+
+
+// ---------------- STRUCTURAL DESIGN PATTERNS----------------------------------
+
+//-------------------learning composite-----------------------------------------
+
+// using src.DesignPatterns.Structural.Composite;
+
+// var package = new Box();
+// var box1 = new Box();
+// //box1 contain mouse
+// box1.AddItem(new Mouse());
+
+// var box2 = new Box();
+
+
+// var box3 = new Box();
+// box3.AddItem(new MicroPhone());
+// var box4 = new Box();
+// box4.AddItem(new KeyBoard());
+
+// box2.AddItem(box3);
+// box2.AddItem(box4);
+
+// package.AddItem(box1);
+// package.AddItem(box2);
+// System.Console.WriteLine("Total price of amazon package " + package.GetPrice());
+
+//-------------------learning composite-----------------------------------------
+
+//-------------------learning Adapter-----------------------------------------
+
+// using src.DesignPatterns.Structural.Adapter;
+// using src.DesignPatterns.Structural.Adapter.Package;
+
+// var videoEditor = new VideoEditor(new Video());
+// videoEditor.ApplyColor(new BlackAndWhiteColor());
+
+// videoEditor.ApplyColor(new RainbowColor(new Rainbow()));
+//-------------------learning Adapter-----------------------------------------
+
+//-------------------learning Bridge-----------------------------------------
+
+
+
+//-------------------learning Bridge-----------------------------------------
+// using src.DesignPatterns.Structural.Bridge.BadSolution;
+
+// var lgremote = new LGRemote();
+// lgremote.TurnOn();
+// lgremote.TurnOff();
+
+// var lgtvandradioremote = new LGTvAndRadioRemote();
+// lgtvandradioremote.TurnOn();
+// lgtvandradioremote.VolumeDown();
+
+
+using src.DesignPatterns.Structural.Bridge.GoodSolution;
+
+var lgremote = new RemoteControl(new LGRadio()); //remote type and brand type are now seperate
+lgremote.TurnOn();
+lgremote.TurnOff();
+
+var advsonyremote = new AdvancedRemoteControl(new SonyRadio());
+advsonyremote.TurnOn();
+advsonyremote.SetChannel(1);
+advsonyremote.TurnOff();
