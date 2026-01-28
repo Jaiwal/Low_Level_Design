@@ -446,13 +446,47 @@ System.Console.WriteLine("Content : " + editor.Content);
 // lgtvandradioremote.VolumeDown();
 
 
-using src.DesignPatterns.Structural.Bridge.GoodSolution;
+// using src.DesignPatterns.Structural.Bridge.GoodSolution;
 
-var lgremote = new RemoteControl(new LGRadio()); //remote type and brand type are now seperate
-lgremote.TurnOn();
-lgremote.TurnOff();
+// var lgremote = new RemoteControl(new LGRadio()); //remote type and brand type are now seperate
+// lgremote.TurnOn();
+// lgremote.TurnOff();
 
-var advsonyremote = new AdvancedRemoteControl(new SonyRadio());
-advsonyremote.TurnOn();
-advsonyremote.SetChannel(1);
-advsonyremote.TurnOff();
+// var advsonyremote = new AdvancedRemoteControl(new SonyRadio());
+// advsonyremote.TurnOn();
+// advsonyremote.SetChannel(1);
+// advsonyremote.TurnOff();
+//-------------------learning Bridge-----------------------------------------
+
+
+//-------------------learning Proxy-----------------------------------------
+
+// using src.DesignPatterns.Structural.Proxy.BadSolution;
+// using src.DesignPatterns.Structural.Proxy.Package.BadSolution;
+
+// var videoList = new VideoList();
+// String[] videoIds = { "123", "avsss", "asdascasd", "232323" };
+
+// foreach (var videoid in videoIds)
+// {
+//     videoList.Add(new YoutubeVideo(videoid));
+// }
+// //here no matter if you want to watch only 123, it will always be downloading all of them
+// //better to download only after user mentions that i need this particular one to watch i.e delayed loading
+
+// videoList.Watch("123");
+
+
+
+using src.DesignPatterns.Structural.Proxy.GoodSolution;
+using src.DesignPatterns.Structural.Proxy.Package.GoodSolution;
+
+var videoList = new VideoList();
+String[] videoIds = { "123", "avsss", "asdascasd", "232323" };
+
+foreach (var videoid in videoIds)
+{
+    videoList.Add(new YoutubeVideoProxy(videoid));
+}
+//now only video with 123 is loaded-> lazy loading
+videoList.Watch("123");
