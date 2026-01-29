@@ -478,15 +478,36 @@ System.Console.WriteLine("Content : " + editor.Content);
 
 
 
-using src.DesignPatterns.Structural.Proxy.GoodSolution;
-using src.DesignPatterns.Structural.Proxy.Package.GoodSolution;
+// using src.DesignPatterns.Structural.Proxy.GoodSolution;
+// using src.DesignPatterns.Structural.Proxy.Package.GoodSolution;
 
-var videoList = new VideoList();
-String[] videoIds = { "123", "avsss", "asdascasd", "232323" };
+// var videoList = new VideoList();
+// String[] videoIds = { "123", "avsss", "asdascasd", "232323" };
 
-foreach (var videoid in videoIds)
+// foreach (var videoid in videoIds)
+// {
+//     videoList.Add(new YoutubeVideoProxy(videoid));
+// }
+// //now only video with 123 is loaded-> lazy loading
+// videoList.Watch("123");
+
+//-------------------learning Proxy-----------------------------------------
+
+//-------------------learning Flyweight-----------------------------------------
+// using src.DesignPatterns.Structural.Flyweight.BadSolution;
+
+// var cropServive = new CropService();
+// foreach (var crop in cropServive.GetCrops())
+// {
+//     crop.Render();
+// }
+
+using src.DesignPatterns.Structural.Flyweight.GoodSolution;
+
+var cropServive = new CropService(new CropIconFactory());
+foreach (var crop in cropServive.GetCrops())
 {
-    videoList.Add(new YoutubeVideoProxy(videoid));
+    crop.Render();
 }
-//now only video with 123 is loaded-> lazy loading
-videoList.Watch("123");
+
+//-------------------learning Flyweight-----------------------------------------
