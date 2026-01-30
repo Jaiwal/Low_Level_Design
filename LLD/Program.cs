@@ -502,12 +502,41 @@ System.Console.WriteLine("Content : " + editor.Content);
 //     crop.Render();
 // }
 
-using src.DesignPatterns.Structural.Flyweight.GoodSolution;
+// using src.DesignPatterns.Structural.Flyweight.GoodSolution;
 
-var cropServive = new CropService(new CropIconFactory());
-foreach (var crop in cropServive.GetCrops())
-{
-    crop.Render();
-}
+// var cropServive = new CropService(new CropIconFactory());
+// foreach (var crop in cropServive.GetCrops())
+// {
+//     crop.Render();
+// }
 
 //-------------------learning Flyweight-----------------------------------------
+
+
+//-------------------learning Facade-----------------------------------------
+
+// using src.DesignPatterns.Structural.Facade;
+
+// var orderReq = new OrderRequest();
+// var authenticator = new Authenticate();
+// var inventory = new Inventory();
+// //check for all item existence
+// foreach (var id in orderReq.Itemids)
+// {
+//     inventory.CheckInventory(id);
+// }
+
+// var payment = new Payment(orderReq.Name, orderReq.CardNumber, orderReq.Amount);
+// payment.Pay();
+
+// var orderFulfillment = new OrderFulfillment(inventory);
+// orderFulfillment.fulfill(orderReq.Name, orderReq.Address, orderReq.Itemids);
+
+//no need to do above steps just use orderservice(facade) class
+
+using src.DesignPatterns.Structural.Facade;
+
+var orderReq = new OrderRequest();
+var orderService = new OrderService();
+orderService.Order(orderReq);
+//-------------------learning Facade-----------------------------------------
