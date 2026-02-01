@@ -534,9 +534,57 @@ System.Console.WriteLine("Content : " + editor.Content);
 
 //no need to do above steps just use orderservice(facade) class
 
-using src.DesignPatterns.Structural.Facade;
+// using src.DesignPatterns.Structural.Facade;
 
-var orderReq = new OrderRequest();
-var orderService = new OrderService();
-orderService.Order(orderReq);
+// var orderReq = new OrderRequest();
+// var orderService = new OrderService();
+// orderService.Order(orderReq);
 //-------------------learning Facade-----------------------------------------
+
+
+//-------------------learning Decorator-----------------------------------------
+//user input data
+// using src.DesignPatterns.Structural.Decorator.BadSolution;
+
+// var url = "https://nikunj.com";
+// var data = "Brasane wali radhe";
+// var compress = true;
+// var encrypte = true;
+
+// //a lot of conditional to decide what to use at compile time really
+// var clouddata = new CloudData(url);
+// if (compress && encrypte)
+// {
+//     clouddata = new CompressedAndEncryptedData(url);
+// }
+// else if (compress)
+// {
+//     clouddata = new CompressedData(url);
+// }
+// else if (encrypte)
+// {
+//     clouddata = new EncryptData(url);
+// }
+
+// clouddata.Save(data);
+
+
+using src.DesignPatterns.Structural.Decorator.GoodSolution;
+
+var url = "https://nikunj.com";
+var data = "Brasane wali radhe";
+var compress = true;
+var encrypte = true;
+
+IData clouddata = new CloudData(url);
+
+if (encrypte)
+{
+    clouddata = new EncryptionDecorator(clouddata);
+}
+if (compress)
+{
+    clouddata = new CompressionDataDecorator(clouddata);
+}
+
+clouddata.Save(data);
