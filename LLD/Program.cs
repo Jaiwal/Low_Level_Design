@@ -569,22 +569,76 @@ System.Console.WriteLine("Content : " + editor.Content);
 // clouddata.Save(data);
 
 
-using src.DesignPatterns.Structural.Decorator.GoodSolution;
+// using src.DesignPatterns.Structural.Decorator.GoodSolution;
 
-var url = "https://nikunj.com";
-var data = "Brasane wali radhe";
-var compress = true;
-var encrypte = true;
+// var url = "https://nikunj.com";
+// var data = "Brasane wali radhe";
+// var compress = true;
+// var encrypte = true;
 
-IData clouddata = new CloudData(url);
+// IData clouddata = new CloudData(url);
 
-if (encrypte)
-{
-    clouddata = new EncryptionDecorator(clouddata);
-}
-if (compress)
-{
-    clouddata = new CompressionDataDecorator(clouddata);
-}
+// if (encrypte)
+// {
+//     clouddata = new EncryptionDecorator(clouddata);
+// }
+// if (compress)
+// {
+//     clouddata = new CompressionDataDecorator(clouddata);
+// }
 
-clouddata.Save(data);
+// clouddata.Save(data);
+//-------------------learning Decorator-----------------------------------------
+
+
+
+
+//-------------------CREATIONAL PATTERNS-----------------------------------------
+
+//-------------------learning Prototype-----------------------------------------
+
+// using src.DesignPatterns.Creational.Prototype.BadSolution;
+
+// var circle = new Circle();
+// circle.Draw();
+
+// //user manupualte the default circle created
+// circle.Radius = 9;
+
+// var rectangle = new Rectangle();
+// rectangle.Draw();
+
+// //user edits
+// rectangle.Width = 21;
+// rectangle.Height = 13;
+
+// //copy pasting shape by selecting duplicate
+// var shapeactions = new ShapeActions();
+// shapeactions.Duplicate(circle);
+// shapeactions.Duplicate(rectangle);
+
+
+using src.DesignPatterns.Creational.Prototype.GoodSolution;
+
+var circle = new Circle();
+circle.Draw();
+
+//user manupualte the default circle created
+circle.Radius = 9;
+
+var rectangle = new Rectangle();
+rectangle.Draw();
+
+//user edits
+rectangle.Width = 21;
+rectangle.Height = 13;
+
+//copy pasting shape by selecting duplicate
+var shapeactions = new ShapeActions();
+IShape newcircle = shapeactions.Duplicate(circle);
+newcircle.Draw();
+
+IShape newrectangle = shapeactions.Duplicate(rectangle);
+newrectangle.Draw();
+
+//-------------------learning Prototype-----------------------------------------
