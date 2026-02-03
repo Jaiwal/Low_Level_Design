@@ -618,27 +618,50 @@ System.Console.WriteLine("Content : " + editor.Content);
 // shapeactions.Duplicate(rectangle);
 
 
-using src.DesignPatterns.Creational.Prototype.GoodSolution;
+// using src.DesignPatterns.Creational.Prototype.GoodSolution;
 
-var circle = new Circle();
-circle.Draw();
+// var circle = new Circle();
+// circle.Draw();
 
-//user manupualte the default circle created
-circle.Radius = 9;
+// //user manupualte the default circle created
+// circle.Radius = 9;
 
-var rectangle = new Rectangle();
-rectangle.Draw();
+// var rectangle = new Rectangle();
+// rectangle.Draw();
 
-//user edits
-rectangle.Width = 21;
-rectangle.Height = 13;
+// //user edits
+// rectangle.Width = 21;
+// rectangle.Height = 13;
 
-//copy pasting shape by selecting duplicate
-var shapeactions = new ShapeActions();
-IShape newcircle = shapeactions.Duplicate(circle);
-newcircle.Draw();
+// //copy pasting shape by selecting duplicate
+// var shapeactions = new ShapeActions();
+// IShape newcircle = shapeactions.Duplicate(circle);
+// newcircle.Draw();
 
-IShape newrectangle = shapeactions.Duplicate(rectangle);
-newrectangle.Draw();
+// IShape newrectangle = shapeactions.Duplicate(rectangle);
+// newrectangle.Draw();
 
 //-------------------learning Prototype-----------------------------------------
+
+//-------------------learning Singleton-----------------------------------------
+
+// using src.DesignPatterns.Creational.Singleton.BadSolution;
+
+// var settings = new AppSettings();
+// settings.Set("app_name", "Nikunj Bihar");
+// settings.Set("app_creator", "Also Bihari");
+// System.Console.WriteLine(settings.Get("app_name"));
+
+// Test.Run();
+// we get nothing since in test class, app_name does not exist
+//The var settings = new AppSettings() in Program.cs and the new AppSettings() in Test.cs create two different instances
+// of the AppSettings class. These instances are completely independent of each other, meaning they have their
+// own separate state and do not share data.
+
+using src.DesignPatterns.Creational.Singleton.GoodSolution;
+
+var settings = AppSettings.GetInstance();
+settings.Set("app_name", "Nikunj Bihar");
+settings.Set("app_creator", "Also Bihari");
+System.Console.WriteLine(settings.Get("app_name"));
+Test.Run();
