@@ -1,5 +1,5 @@
 
-namespace src.DesignPatterns.Creational.FactoryMethod.GoodSolution.MVCFramework
+namespace src.DesignPatterns.Creational.FactoryMethod.BetterSolution.MVCFramework
 {
     public class BladeViewEngine : IViewEngine
     {

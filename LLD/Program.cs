@@ -658,10 +658,45 @@ System.Console.WriteLine("Content : " + editor.Content);
 // of the AppSettings class. These instances are completely independent of each other, meaning they have their
 // own separate state and do not share data.
 
-using src.DesignPatterns.Creational.Singleton.GoodSolution;
+// using src.DesignPatterns.Creational.Singleton.GoodSolution;
 
-var settings = AppSettings.GetInstance();
-settings.Set("app_name", "Nikunj Bihar");
-settings.Set("app_creator", "Also Bihari");
-System.Console.WriteLine(settings.Get("app_name"));
-Test.Run();
+// var settings = AppSettings.GetInstance();
+// settings.Set("app_name", "Nikunj Bihar");
+// settings.Set("app_creator", "Also Bihari");
+// System.Console.WriteLine(settings.Get("app_name"));
+// Test.Run();
+
+//-------------------learning Singleton-----------------------------------------
+
+
+//-------------------learning Abstract factory-----------------------------------------
+
+// using src.DesignPatterns.Creational.AbstractFactory;
+// using src.DesignPatterns.Creational.AbstractFactory.Package;
+
+// var os = OperatingSystemType.Mac;
+// var userSettingsForm = new UserSettingsForm();
+// userSettingsForm.Render(os);
+
+
+using src.DesignPatterns.Creational.AbstractFactory.GoodSolution;
+using src.DesignPatterns.Creational.AbstractFactory.GoodSolution.Package;
+
+var os = OperatingSystemType.Windows;
+IUIComponentFactory uIComponentFactory;
+
+if (os == OperatingSystemType.Windows)
+{
+    uIComponentFactory = new WindowsUICompnentFactory();
+}
+else if (os == OperatingSystemType.Mac)
+{
+    uIComponentFactory = new MacUICompnentFactory();
+}
+else
+{
+    throw new Exception("Unsupported operating system");
+}
+
+var userSettingsForm = new UserSettingsForm();
+userSettingsForm.Render(uIComponentFactory);

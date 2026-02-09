@@ -1,5 +1,5 @@
 
-namespace src.DesignPatterns.Creational.FactoryMethod.BadSolution.MVCFramework
+namespace src.DesignPatterns.Creational.FactoryMethod.GoodSolution.MVCFramework
 {
     public class TwigViewEngine : IViewEngine
     {

@@ -1,7 +1,7 @@
 
-using src.DesignPatterns.Creational.FactoryMethod.GoodSolution.MVCFramework;
+using src.DesignPatterns.Creational.FactoryMethod.BadSolution.MVCFramework;
 
-namespace src.DesignPatterns.Creational.FactoryMethod.GoodSolution
+namespace src.DesignPatterns.Creational.FactoryMethod.BadSolution
 {  //this is some other developer creating this using MVC framework
     public class OrdersController : Controller
     {

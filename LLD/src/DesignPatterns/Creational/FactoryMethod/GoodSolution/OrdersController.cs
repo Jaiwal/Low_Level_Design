@@ -4,7 +4,7 @@ using src.DesignPatterns.Creational.FactoryMethod.GoodSolution.MVCFramework;
 
 namespace src.DesignPatterns.Creational.FactoryMethod.GoodSolution
 {  
-    public class OrdersController : Controller
+    public class OrdersController : TwigController
     {
         public void ListOrders()
         {
