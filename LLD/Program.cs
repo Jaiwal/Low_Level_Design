@@ -679,24 +679,58 @@ System.Console.WriteLine("Content : " + editor.Content);
 // userSettingsForm.Render(os);
 
 
-using src.DesignPatterns.Creational.AbstractFactory.GoodSolution;
-using src.DesignPatterns.Creational.AbstractFactory.GoodSolution.Package;
+// using src.DesignPatterns.Creational.AbstractFactory.GoodSolution;
+// using src.DesignPatterns.Creational.AbstractFactory.GoodSolution.Package;
 
-var os = OperatingSystemType.Windows;
-IUIComponentFactory uIComponentFactory;
+// var os = OperatingSystemType.Windows;
+// IUIComponentFactory uIComponentFactory;
 
-if (os == OperatingSystemType.Windows)
-{
-    uIComponentFactory = new WindowsUICompnentFactory();
-}
-else if (os == OperatingSystemType.Mac)
-{
-    uIComponentFactory = new MacUICompnentFactory();
-}
-else
-{
-    throw new Exception("Unsupported operating system");
-}
+// //still doing this conditionals here? only need to be done once i.e once assigned correct factory, can be used throughtout the app
+// if (os == OperatingSystemType.Windows)
+// {
+//     uIComponentFactory = new WindowsUICompnentFactory();
+// }
+// else if (os == OperatingSystemType.Mac)
+// {
+//     uIComponentFactory = new MacUICompnentFactory();
+// }
+// else
+// {
+//     throw new Exception("Unsupported operating system");
+// }
 
-var userSettingsForm = new UserSettingsForm();
-userSettingsForm.Render(uIComponentFactory);
+// var userSettingsForm = new UserSettingsForm();
+// userSettingsForm.Render(uIComponentFactory);
+
+//-------------------learning Abstract factory-----------------------------------------
+
+
+//-------------------learning Builder----------------------------------------
+
+using src.DesignPatterns.Creational.Builder.BadSolution;
+using src.DesignPatterns.Creational.Builder.Components;
+
+//a lot of config need to be provided when creating a car or a manual
+var sportsCar = new Car(CarType.Sports,4, new Engine(), false, new DashBorad(hasRevCounter:true), new Wheels(23), new GPSNavigator());
+sportsCar.Fuel = 12;
+var sportsManual=new Manual(CarType.Sports,4, new Engine(), false, new DashBorad(hasRevCounter:true), new Wheels(23), new GPSNavigator());
+System.Console.WriteLine(sportsManual.Print());
+
+
+var suvCar=new Car(CarType.SUV,6, new Engine(), false, new DashBorad(hasRevCounter:true), new Wheels(21), new GPSNavigator());
+suvCar.Fuel = 34;
+var suvManual=new Manual(CarType.Sports,4, new Engine(), false, new DashBorad(hasRevCounter:true), new Wheels(23), new GPSNavigator());
+System.Console.WriteLine(suvManual.Print());
+
+
+
+
+
+
+
+
+
+
+
+
+//-------------------learning Builder-----------------------------------------
