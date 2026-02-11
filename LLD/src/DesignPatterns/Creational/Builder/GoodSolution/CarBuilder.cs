@@ -19,7 +19,8 @@ namespace src.DesignPatterns.Creational.Builder.GoodSolution
 
         public IBuilder IsConvertible(bool isConvertible)
         {
-            throw new NotImplementedException();
+            _car.Isconvertibe = true;
+            return this;
         }
 
 
@@ -52,12 +53,19 @@ namespace src.DesignPatterns.Creational.Builder.GoodSolution
             _car.Wheels = wheels;
             return this;
         }
-
+        
+        //this returns the car object, not necessary but optional in this pattern, maybe useful in some cases
         public Car GetCar()
         {
             var car = _car;
             Reset();
-            return car;
+            return car; 
+        }
+
+        public IBuilder SetSeats(int seats)
+        {
+            _car.Seats = seats;
+            return this;
         }
     }
 }

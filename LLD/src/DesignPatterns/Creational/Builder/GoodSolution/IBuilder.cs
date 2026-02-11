@@ -8,6 +8,8 @@ namespace src.DesignPatterns.Creational.Builder.GoodSolution
 
         IBuilder SetCarType(CarType type);
 
+        IBuilder SetSeats(int seats);
+
         IBuilder IsConvertible(bool isConvertible);
 
         IBuilder SetEngine(Engine engine);

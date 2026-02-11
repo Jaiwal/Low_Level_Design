@@ -707,25 +707,74 @@ System.Console.WriteLine("Content : " + editor.Content);
 
 //-------------------learning Builder----------------------------------------
 
-using src.DesignPatterns.Creational.Builder.BadSolution;
-using src.DesignPatterns.Creational.Builder.Components;
+// using src.DesignPatterns.Creational.Builder.BadSolution;
+// using src.DesignPatterns.Creational.Builder.Components;
 
-//a lot of config need to be provided when creating a car or a manual
-var sportsCar = new Car(CarType.Sports,4, new Engine(), false, new DashBorad(hasRevCounter:true), new Wheels(23), new GPSNavigator());
-sportsCar.Fuel = 12;
-var sportsManual=new Manual(CarType.Sports,4, new Engine(), false, new DashBorad(hasRevCounter:true), new Wheels(23), new GPSNavigator());
-System.Console.WriteLine(sportsManual.Print());
+// //a lot of config need to be provided when creating a car or a manual
+// var sportsCar = new Car(CarType.Sports,4, new Engine(), false, new DashBorad(hasRevCounter:true), new Wheels(23), new GPSNavigator());
+// sportsCar.Fuel = 12;
+// var sportsManual=new Manual(CarType.Sports,4, new Engine(), false, new DashBorad(hasRevCounter:true), new Wheels(23), new GPSNavigator());
+// System.Console.WriteLine(sportsManual.Print());
 
 
-var suvCar=new Car(CarType.SUV,6, new Engine(), false, new DashBorad(hasRevCounter:true), new Wheels(21), new GPSNavigator());
-suvCar.Fuel = 34;
-var suvManual=new Manual(CarType.Sports,4, new Engine(), false, new DashBorad(hasRevCounter:true), new Wheels(23), new GPSNavigator());
+// var suvCar=new Car(CarType.SUV,6, new Engine(), false, new DashBorad(hasRevCounter:true), new Wheels(21), new GPSNavigator());
+// suvCar.Fuel = 34;
+// var suvManual=new Manual(CarType.Sports,4, new Engine(), false, new DashBorad(hasRevCounter:true), new Wheels(23), new GPSNavigator());
+// System.Console.WriteLine(suvManual.Print());
+
+
+
+// using src.DesignPatterns.Creational.Builder.Components;
+// using src.DesignPatterns.Creational.Builder.GoodSolution;
+
+// var carBuilder = new CarBuilder();
+// carBuilder.SetCarType(CarType.Sports)
+// .SetSeats(4)
+// .SetEngine(new Engine())
+// .SetDashBoard(new DashBorad(hasRevCounter: true))
+// .SetGPSNavigator(new GPSNavigator())
+// .SetWheels(new Wheels(23));
+
+// var sportsCar = carBuilder.GetCar();
+// sportsCar.Fuel = 100;
+
+
+// var carManualBuilder = new CarManualBuilder();
+// carManualBuilder.SetCarType(CarType.Sports)
+// .SetSeats(4)
+// .SetEngine(new Engine())
+// .SetDashBoard(new DashBorad(hasRevCounter: true))
+// .SetWheels(new Wheels(23));
+
+// var sportsCarManual = carManualBuilder.GetManual();
+// System.Console.WriteLine(sportsCarManual.Print());
+
+
+//using director class now
+
+using src.DesignPatterns.Creational.Builder.GoodSolution;
+
+var carBuilder = new CarBuilder();
+var director = new Director();
+
+director.ConstructSportsCar(carBuilder);
+var sportsCar = carBuilder.GetCar();
+sportsCar.Fuel = 100;
+
+director.ConstructSUV(carBuilder);
+var suvCar = carBuilder.GetCar();
+suvCar.Fuel = 50;
+
+
+var manualBuilder = new CarManualBuilder();
+director.ConstructSportsCar(manualBuilder);
+var sportsCarManual = manualBuilder.GetManual();
+System.Console.WriteLine(sportsCarManual.Print());
+
+director.ConstructSUV(manualBuilder);
+var suvManual = manualBuilder.GetManual();
 System.Console.WriteLine(suvManual.Print());
-
-
-
-
-
+//-------------------learning Builder----------------------------------------
 
 
 

@@ -5,14 +5,17 @@ namespace src.DesignPatterns.Creational.Builder.GoodSolution
     public class CarManualBuilder : IBuilder
     {
         private Manual _manual;
-       
 
+        public CarManualBuilder()
+        {
+            Reset();
+        }
         public void Reset()
         {
-            throw new NotImplementedException();
+            _manual = new Manual();
         }
 
-       
+
 
         public IBuilder IsConvertible(bool isConvertible)
         {
@@ -51,5 +54,17 @@ namespace src.DesignPatterns.Creational.Builder.GoodSolution
             return this;
         }
 
+         public Manual GetManual()
+        {
+            var manual = _manual;
+            Reset();
+            return manual; 
+        }
+
+        public IBuilder SetSeats(int seats)
+        {
+            _manual.Seats = seats;
+            return this;
+        }
     }
 }

@@ -5,7 +5,7 @@ namespace src.DesignPatterns.Creational.Builder.GoodSolution
 {
     public class Car
     {
-        public CarType Type{ get; set; }
+        public CarType Type{ get; set; } //now we have properties, not fields like before, can use fields too though
 
         public int Seats{ get; set; }
 
