@@ -40,7 +40,7 @@
 // //but if you replace rectangle to square, this breaks
 // // A Square cannot be substituted for a Rectangle without altering the program's behavior. 
 
-// //below follows L
+// //below follows L, see how in left its Shape object and how you are easily using child object in right
 // Shape rectangle = new Rectangle { Width = 5, Height = 4 };
 // System.Console.WriteLine($"Area of rectangel: {rectangle.Area}");
 
@@ -148,6 +148,17 @@ System.Console.WriteLine("Content : " + editor.Content);
 // videoStorage.SetCompressor(new CompressorMP4());
 // videoStorage.Store("/videos/radhe  ");
 
+using src.DesignPatterns.Behavioral.Strategy.HeadFirst;
+MallardDuck mallard = new MallardDuck();
+RubberDuck rubberDuck = new RubberDuck();
+
+mallard.PerformFly();
+mallard.flyBehaviour = new FlyRocketPower();
+mallard.PerformFly();
+
+rubberDuck.PerformQuack();
+rubberDuck.quackBahaviour = new QuackSqeak(); //changed on runtime
+rubberDuck.PerformQuack();
 
 //-------------------learning strategy-----------------------------------------
 
@@ -750,30 +761,30 @@ System.Console.WriteLine("Content : " + editor.Content);
 // System.Console.WriteLine(sportsCarManual.Print());
 
 
-//using director class now
+// //using director class now
 
-using src.DesignPatterns.Creational.Builder.GoodSolution;
+// using src.DesignPatterns.Creational.Builder.GoodSolution;
 
-var carBuilder = new CarBuilder();
-var director = new Director();
+// var carBuilder = new CarBuilder();
+// var director = new Director();
 
-director.ConstructSportsCar(carBuilder);
-var sportsCar = carBuilder.GetCar();
-sportsCar.Fuel = 100;
+// director.ConstructSportsCar(carBuilder);
+// var sportsCar = carBuilder.GetCar();
+// sportsCar.Fuel = 100;
 
-director.ConstructSUV(carBuilder);
-var suvCar = carBuilder.GetCar();
-suvCar.Fuel = 50;
+// director.ConstructSUV(carBuilder);
+// var suvCar = carBuilder.GetCar();
+// suvCar.Fuel = 50;
 
 
-var manualBuilder = new CarManualBuilder();
-director.ConstructSportsCar(manualBuilder);
-var sportsCarManual = manualBuilder.GetManual();
-System.Console.WriteLine(sportsCarManual.Print());
+// var manualBuilder = new CarManualBuilder();
+// director.ConstructSportsCar(manualBuilder);
+// var sportsCarManual = manualBuilder.GetManual();
+// System.Console.WriteLine(sportsCarManual.Print());
 
-director.ConstructSUV(manualBuilder);
-var suvManual = manualBuilder.GetManual();
-System.Console.WriteLine(suvManual.Print());
+// director.ConstructSUV(manualBuilder);
+// var suvManual = manualBuilder.GetManual();
+// System.Console.WriteLine(suvManual.Print());
 //-------------------learning Builder----------------------------------------
 
 
