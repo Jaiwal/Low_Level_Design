@@ -148,17 +148,17 @@ System.Console.WriteLine("Content : " + editor.Content);
 // videoStorage.SetCompressor(new CompressorMP4());
 // videoStorage.Store("/videos/radhe  ");
 
-using src.DesignPatterns.Behavioral.Strategy.HeadFirst;
-MallardDuck mallard = new MallardDuck();
-RubberDuck rubberDuck = new RubberDuck();
+// using src.DesignPatterns.Behavioral.Strategy.HeadFirst;
+// MallardDuck mallard = new MallardDuck();
+// RubberDuck rubberDuck = new RubberDuck();
 
-mallard.PerformFly();
-mallard.flyBehaviour = new FlyRocketPower();
-mallard.PerformFly();
+// mallard.PerformFly();
+// mallard.flyBehaviour = new FlyRocketPower();
+// mallard.PerformFly();
 
-rubberDuck.PerformQuack();
-rubberDuck.quackBahaviour = new QuackSqeak(); //changed on runtime
-rubberDuck.PerformQuack();
+// rubberDuck.PerformQuack();
+// rubberDuck.quackBahaviour = new QuackSqeak(); //changed on runtime
+// rubberDuck.PerformQuack();
 
 //-------------------learning strategy-----------------------------------------
 
@@ -235,6 +235,10 @@ rubberDuck.PerformQuack();
 // var undoCommand = new UndoCommand(history);
 // undoCommand.Execute();
 // System.Console.WriteLine(htmlDodc.Content);
+using src.DesignPatterns.Behavioral.Command.HeadFirst.SimpleRemoteControl;
+var remote=new SimpleRemoteControl();
+
+Console.WriteLine("hey");
 
 //-------------------learning Command-----------------------------------------
 

@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "RowWUxVDlfY=",
+  "dgSpecHash": "JTz4Bd2QtPg=",
   "success": true,
   "projectFilePath": "/Users/priyasharma/Documents/LLD/Low_Level_Design/LLD/LLD.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/priyasharma/.nuget/packages/microsoft.netcore.app.ref/8.0.26/microsoft.netcore.app.ref.8.0.26.nupkg.sha512",
+    "/Users/priyasharma/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.26/microsoft.aspnetcore.app.ref.8.0.26.nupkg.sha512",
+    "/Users/priyasharma/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.26/microsoft.netcore.app.host.osx-arm64.8.0.26.nupkg.sha512"
+  ],
   "logs": []
 }
