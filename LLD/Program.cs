@@ -235,11 +235,56 @@ System.Console.WriteLine("Content : " + editor.Content);
 // var undoCommand = new UndoCommand(history);
 // undoCommand.Execute();
 // System.Console.WriteLine(htmlDodc.Content);
-using src.DesignPatterns.Behavioral.Command.HeadFirst.SimpleRemoteControl;
-var remote=new SimpleRemoteControl();
 
-Console.WriteLine("hey");
 
+//headfirst 
+// using src.DesignPatterns.Behavioral.Command.HeadFirst.SimpleRemoteControl;
+
+//simple remote control example
+// var remote=new SimpleRemoteControl();
+// var light=new Light();
+// var lightOnCommand=new LightOnCommand(light);
+// remote.SetCommand(lightOnCommand);
+// remote.ButtonWasPressed();
+// remote.SetCommand(new GarageDoorOpenCommand(new GarageDoor()));
+// remote.ButtonWasPressed();
+
+using src.DesignPatterns.Behavioral.Command.HeadFirst.RemoteControlWithUndo;
+var remoteControl = new RemoteControlWithUndo();
+
+            Light livingRoomLight = new Light("Living Room");
+
+            LightOnCommand livingRoomLightOn = new LightOnCommand(livingRoomLight);
+            LightOffCommand livingRoomLightOff = new    LightOffCommand(livingRoomLight);
+
+            remoteControl.SetCommand(0, livingRoomLightOn, livingRoomLightOff);
+
+            remoteControl.OnButtonWasPushed(0);
+            remoteControl.OffButtonWasPushed(0);
+            Console.WriteLine(remoteControl);
+            remoteControl.UndoButtonWasPushed();
+            remoteControl.OffButtonWasPushed(0);
+            remoteControl.OnButtonWasPushed(0);
+            Console.WriteLine(remoteControl);
+            remoteControl.UndoButtonWasPushed();
+
+            Fan ceilingFan = new Fan("Living Room");
+
+            FanMediumCommand ceilingFanMedium = new FanMediumCommand(ceilingFan);
+            FanHighCommand ceilingFanHigh = new FanHighCommand(ceilingFan);
+            FanOffCommand ceilingFanOff = new FanOffCommand(ceilingFan);
+
+            remoteControl.SetCommand(0, ceilingFanMedium, ceilingFanOff);
+            remoteControl.SetCommand(1, ceilingFanHigh, ceilingFanOff);
+
+            remoteControl.OnButtonWasPushed(0);
+            remoteControl.OffButtonWasPushed(0);
+            Console.WriteLine(remoteControl);
+            remoteControl.UndoButtonWasPushed();
+
+            remoteControl.OnButtonWasPushed(1);
+            Console.WriteLine(remoteControl);
+            remoteControl.UndoButtonWasPushed();
 //-------------------learning Command-----------------------------------------
 
 //-------------------learning Template-----------------------------------------
