@@ -1,17 +1,17 @@
 namespace src.DesignPatterns.Behavioral.Iterator.HeadFirst.DinerMerge
 {
-    public class DinerMenuIterator : IIterator
+    public class PancakeMenuIterator : IIterator
     {
-        private readonly MenuItem[] _items;
+        private readonly List<MenuItem> _items;
         private int _position;
 
-        public DinerMenuIterator(MenuItem[] items)
+        public PancakeMenuIterator(List<MenuItem> items)
         {
             _items=items;
         }
         public bool HasNext()
         {
-           return  _position<_items.Length && _items[_position]!=null;
+           return  _position<_items.Count;
         }
 
         public MenuItem Next()

@@ -196,8 +196,17 @@ System.Console.WriteLine("Content : " + editor.Content);
 // }
 
 //-------------------learning iterator-----------------------------------------
+using src.DesignPatterns.Behavioral.Iterator.HeadFirst.DinerMerge;
+PancakeMenu pancakeHouseMenu = new PancakeMenu();
+            DinerMenu dinerMenu = new DinerMenu();
 
+            Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu);
 
+            // Without iterators
+            //printMenu();
+
+            // With iterators
+            waitress.PrintMenu();
 //-------------------learning Command-----------------------------------------
 
 // using src.DesignPatterns.Behavioral.BadSolution.Command;
@@ -249,42 +258,42 @@ System.Console.WriteLine("Content : " + editor.Content);
 // remote.SetCommand(new GarageDoorOpenCommand(new GarageDoor()));
 // remote.ButtonWasPressed();
 
-using src.DesignPatterns.Behavioral.Command.HeadFirst.RemoteControlWithUndo;
-var remoteControl = new RemoteControlWithUndo();
+// using src.DesignPatterns.Behavioral.Command.HeadFirst.RemoteControlWithUndo;
+// var remoteControl = new RemoteControlWithUndo();
 
-            Light livingRoomLight = new Light("Living Room");
+//             Light livingRoomLight = new Light("Living Room");
 
-            LightOnCommand livingRoomLightOn = new LightOnCommand(livingRoomLight);
-            LightOffCommand livingRoomLightOff = new    LightOffCommand(livingRoomLight);
+//             LightOnCommand livingRoomLightOn = new LightOnCommand(livingRoomLight);
+//             LightOffCommand livingRoomLightOff = new    LightOffCommand(livingRoomLight);
 
-            remoteControl.SetCommand(0, livingRoomLightOn, livingRoomLightOff);
+//             remoteControl.SetCommand(0, livingRoomLightOn, livingRoomLightOff);
 
-            remoteControl.OnButtonWasPushed(0);
-            remoteControl.OffButtonWasPushed(0);
-            Console.WriteLine(remoteControl);
-            remoteControl.UndoButtonWasPushed();
-            remoteControl.OffButtonWasPushed(0);
-            remoteControl.OnButtonWasPushed(0);
-            Console.WriteLine(remoteControl);
-            remoteControl.UndoButtonWasPushed();
+//             remoteControl.OnButtonWasPushed(0);
+//             remoteControl.OffButtonWasPushed(0);
+//             Console.WriteLine(remoteControl);
+//             remoteControl.UndoButtonWasPushed();
+//             remoteControl.OffButtonWasPushed(0);
+//             remoteControl.OnButtonWasPushed(0);
+//             Console.WriteLine(remoteControl);
+//             remoteControl.UndoButtonWasPushed();
 
-            Fan ceilingFan = new Fan("Living Room");
+//             Fan ceilingFan = new Fan("Living Room");
 
-            FanMediumCommand ceilingFanMedium = new FanMediumCommand(ceilingFan);
-            FanHighCommand ceilingFanHigh = new FanHighCommand(ceilingFan);
-            FanOffCommand ceilingFanOff = new FanOffCommand(ceilingFan);
+//             FanMediumCommand ceilingFanMedium = new FanMediumCommand(ceilingFan);
+//             FanHighCommand ceilingFanHigh = new FanHighCommand(ceilingFan);
+//             FanOffCommand ceilingFanOff = new FanOffCommand(ceilingFan);
 
-            remoteControl.SetCommand(0, ceilingFanMedium, ceilingFanOff);
-            remoteControl.SetCommand(1, ceilingFanHigh, ceilingFanOff);
+//             remoteControl.SetCommand(0, ceilingFanMedium, ceilingFanOff);
+//             remoteControl.SetCommand(1, ceilingFanHigh, ceilingFanOff);
 
-            remoteControl.OnButtonWasPushed(0);
-            remoteControl.OffButtonWasPushed(0);
-            Console.WriteLine(remoteControl);
-            remoteControl.UndoButtonWasPushed();
+//             remoteControl.OnButtonWasPushed(0);
+//             remoteControl.OffButtonWasPushed(0);
+//             Console.WriteLine(remoteControl);
+//             remoteControl.UndoButtonWasPushed();
 
-            remoteControl.OnButtonWasPushed(1);
-            Console.WriteLine(remoteControl);
-            remoteControl.UndoButtonWasPushed();
+//             remoteControl.OnButtonWasPushed(1);
+//             Console.WriteLine(remoteControl);
+//             remoteControl.UndoButtonWasPushed();
 //-------------------learning Command-----------------------------------------
 
 //-------------------learning Template-----------------------------------------
